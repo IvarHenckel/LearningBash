@@ -3,7 +3,7 @@ A repo for collecting notes and example bash scripts on my way to learn bash scr
 
 Iv'e used a lot of sources but currently following this one: https://www.youtube.com/watch?v=e7BufAVwDiM
 
-7 m 42 s in to the video
+2 h 53 m 01 s in to the video
 
 ## Initial Notes about Bash
 Bash = A CLI / Shell to interact with a computer from the command line.
