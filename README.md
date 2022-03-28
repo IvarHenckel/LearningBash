@@ -1,9 +1,8 @@
 # LearningBash
 A repo for collecting notes and example bash scripts on my way to learn bash scripting in more detail.
 
-Iv'e used a lot of sources but currently following this one: https://www.youtube.com/watch?v=e7BufAVwDiM
+Iv'e used a lot of sources but mostly this one: https://www.youtube.com/watch?v=e7BufAVwDiM
 
-2 h 53 m 01 s in to the video
 
 ## Initial Notes about Bash
 Bash = A CLI / Shell to interact with a computer from the command line.
@@ -23,7 +22,7 @@ First line in a bash script should always be a #! (pronounced "shebang") followe
 This didn't work for me due to a different path. Using the following is a workaround to run the first bash found on the PATH. And it seems to be preffered for portability.->
 #!/usr/bin/env bash
 
-A comment on the difference between sh and bash. "Please do not be fooled by scripts or examples on the Internet that use /bin/sh as the interpreter. sh is not bash! Bash itself is a "sh-compatible" shell (meaning that it can run most 'sh' scripts and carries much of the same syntax) however, the opposite is not true; some features of Bash will break or cause unexpected behavior in sh." I think he's saying that sh is the language and bash is the interpreter?
+A comment on the difference between sh and bash. "Please do not be fooled by scripts or examples on the Internet that use /bin/sh as the interpreter. sh is not bash! Bash itself is a "sh-compatible" shell (meaning that it can run most 'sh' scripts and carries much of the same syntax) however, the opposite is not true; some features of Bash will break or cause unexpected behavior in sh."
 
 To run a script use ->
     
@@ -123,7 +122,7 @@ if statements in bash->
 
 Note: one guy says that usually you don't want nested if statements and 
 using && when posible is better.
-Second note: The spaces inside [ ] is needed! We get error otherwise.
+Second note: The spaces inside [ ] is needed! We get an error otherwise.
 
 Different logical operators are:
 
@@ -235,7 +234,9 @@ Functions in bash->
 
 Note: It seems that all variables have global scope. So if I set a variable in a function that value is changed globally, it is not just a local variable with the same name.
 
-### Useful Bash Commands to Remember (I didn't already know them)
+One guy says that if you use a lot of functions that's a good sign you should be using Python/Perl instead.
+
+## Useful Bash Commands to Remember (I didn't already know them)
 As an alternative instead of a .sh file that we can execute we can use alias->
 
     alias <aliasname>=<some bash commands, i.e. a bashscript>;
@@ -245,12 +246,31 @@ Curl downloads a file from the internet. I've used curl before but he might have
     curl <some url> > <new file name>
     # -O instead of > while just give it the original filename
     # -o <new_file_name> can be used instead of > with the same behaviour.
-    # curl -I <some_url> will present info on the file. Can be good to use before downloading.  
+    # curl -I <some_url> will present info on the file. Can be good to use before downloading.
+
+### When to you need to put double quotes on variables?
+
+"General rule: quote it if it can either be empty or contain spaces (or any whitespace really) or special characters (wildcards). Not quoting strings with spaces often leads to the shell breaking apart a single argument into many."
+
+I interpret this as: You should always use "" if you're working with strings. You don't need to if you're working with numerical values. If you're unsure, just put a "" there, it doesn't hurt.
+
+## Debugging Bash 
+You can run with debug using->
+
+    bash -x ./helloScript.sh
+
+You can achieve the same thing by putting -x after the shebang->
+
+    #!/usr/bin/env bash -x
+
+A third way to debug is to use the following inside the script.->
+
+    set -x # When you want debugging to start in the script
+
+    # Some code you want to debug...
+
+    set +x # When you want debugging to stop in the script 
 
 ## TODO:
-- Divide this file into several md files in the Docs folder if it get's to long. Maybe just divide everything into smaller sections, depends on how much we end up with.
-- Don't forget to checkout how this md file renders before pushing. (Use Ctrl+Shift+V to see the preview)
-- Sometimes in the tutorials they quote variables. Sometimes they don't. What does it mean and when should you do it?
 - To get some pactical experience write a script to patch jar files.
 - Any other ideas on practical experience?
-- Isn't it possible to make named parameters to functions?
