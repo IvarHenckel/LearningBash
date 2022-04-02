@@ -272,5 +272,4 @@ A third way to debug is to use the following inside the script.->
     set +x # When you want debugging to stop in the script 
 
 ## TODO:
-- To get some pactical experience write a script to patch jar files.
-- Any other ideas on practical experience?
+- Another idea on a script: Interactive git work flow. Ask in terminal for each modified file if we want to add (answer y/n). Let user insert commit message. Pull (check for conflicts) and then push. (Useful for workflow on your own branch. Switching branches, squashing, merging etc is not considered in this file.)
