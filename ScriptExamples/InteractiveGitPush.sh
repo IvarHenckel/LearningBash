@@ -1,5 +1,9 @@
 #! /usr/bin/env bash
 
+: 'This script is useful when you are working on a repo/branch
+on your own. Then you usually just add + commit + push which this
+script handles for you.'
+
 echo "Welcome! This script adds, commits and pushes modified files interactively."
 
 echo "We begin by showing the output from: git status"
